@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_partner_form_inherit_interlogistica_reqs" model="ir.ui.view">
+        <field name="name">res.partner.form.interlogistica.reqs</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <!-- Hacer el teléfono obligatorio para individuos -->
+            <xpath expr="//field[@name='phone']" position="attributes">
+                <attribute name="required">not is_company</attribute> 
+            </xpath>
+            
+            <!-- Hacer la calle obligatoria para individuos -->
+            <xpath expr="//field[@name='street']" position="attributes">
+                <attribute name="required">not is_company</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>
