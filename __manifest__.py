@@ -11,8 +11,9 @@
         - Dirección (Calle)
     """,
     'author': 'DevOpsMBAConsultings',
-    'depends': ['base', 'partner_firstname'],
+    'depends': ['base', 'partner_firstname', 'sales_team'],
     'data': [
+        'security/security_rules.xml',
         'views/res_partner_views.xml',
     ],
     'installable': True,
