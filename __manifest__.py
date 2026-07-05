@@ -13,6 +13,7 @@
     'author': 'DevOpsMBAConsultings',
     'depends': ['base', 'partner_firstname', 'sales_team'],
     'data': [
+        'data/config_data.xml',
         'security/security_rules.xml',
         'views/res_partner_views.xml',
     ],
