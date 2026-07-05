@@ -4,7 +4,7 @@ from odoo.exceptions import ValidationError
 class ResPartner(models.Model):
     _inherit = 'res.partner'
 
-    @api.constrains('phone', 'street', 'is_company')
+    @api.constrains('phone', 'street', 'email', 'is_company')
     def _check_interlogistica_mandatory_fields(self):
         for partner in self:
             # Solo aplica para contactos que no son empresas (is_company = False)
@@ -13,3 +13,5 @@ class ResPartner(models.Model):
                     raise ValidationError(_("El número de Teléfono es obligatorio."))
                 if not partner.street:
                     raise ValidationError(_("La Dirección (Calle) es obligatoria."))
+                if not partner.email:
+                    raise ValidationError(_("El Correo Electrónico es obligatorio."))
